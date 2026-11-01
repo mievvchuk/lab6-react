@@ -21,15 +21,17 @@ function RegistraciinaForma({title}){
         }
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(forma.email)){
             alert("Не правильно введено емейл");
+            return;
         }
         if(forma.password.length<8){
             alert("Пароль має бути мінімум з 8 символів");
+            return;
         }
         if(forma.password!==forma.pidtverdPassword){
             alert("Паролі не співпадають");
             return;
         }
-        if(forma.dataNarodzh>new Date().toLocaleDateString("uk-UA")){
+        if(new Date(forma.dataNarodzh)>new Date()){
             alert("Дата народження не може бути в майбутньому часі");
             return;
         }
